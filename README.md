@@ -11,6 +11,7 @@ const stream = writableStream(['127.0.0.1:9092'], 'logs');
 
 var log = bunyan.createLogger('myLogger');
 log.addStream({
+  name: "myNewStream",
   stream,
   level: "debug"
 });

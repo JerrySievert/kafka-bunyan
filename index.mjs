@@ -1,18 +1,21 @@
 'use strict';
 
-import { CompressionTypes, Kafka } from 'kafkajs';
+import { CompressionTypes, Kafka, logLevel } from 'kafkajs';
 import { Writable } from 'stream';
 
-const writableStream = async (
-  brokers,
-  topic,
-  { clientId } = {
-    clientId: 'kafka-bunyan'
-  }
-) => {
+const defaults = {
+  clientId: 'kafka-bunyan'
+};
+
+const writableStream = async (brokers, topic, options = {}) => {
+  options = { ...defaults, ...options };
+
+  const { clientId } = options;
+
   const kafka = new Kafka({
     clientId,
-    brokers: brokers
+    brokers: brokers,
+    logCreator: options.logCreator
   });
 
   const producer = kafka.producer();

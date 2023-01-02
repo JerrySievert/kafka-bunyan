@@ -1,6 +1,6 @@
 {
   "name": "kafka-bunyan",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Kafka Stream for Bunyan",
   "main": "index.mjs",
   "scripts": {
