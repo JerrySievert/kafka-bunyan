@@ -1,6 +1,6 @@
 'use strict';
 
-import { CompressionTypes, Kafka, logLevel } from 'kafkajs';
+import { CompressionTypes, Kafka } from 'kafkajs';
 import { Writable } from 'stream';
 
 const defaults = {
